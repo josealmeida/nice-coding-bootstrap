@@ -2,4 +2,5 @@
 
 ## Pro ASP.NET MVC 4
 
-### EX1 - PartyInvites - page 16
+- ex1 - page 16
+- ex2 - page 27
