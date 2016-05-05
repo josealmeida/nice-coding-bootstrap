@@ -12,8 +12,9 @@
     <title>RsvpForm</title>
 </head>
 <body>
-    @using (Html.BeginForm())
-    {
+    @using (Html.BeginForm()) {
+        @Html.ValidationSummary()
+
         <p>Your name: @Html.TextBoxFor(x => x.Name) </p>
         <p>Your email: @Html.TextBoxFor(x => x.Email)</p>
         <p>Your phone: @Html.TextBoxFor(x => x.Phone)</p>
@@ -30,4 +31,3 @@
     }
 </body>
 </html>
-
