@@ -65,5 +65,27 @@ namespace ex5.Tests
             Assert.AreEqual(testShoppingCart.Products[2].Price, 375M);
             Assert.AreEqual(testShoppingCart.Products[2].Category, "Watersports");
         }
+
+        [TestMethod()]
+        public void createShoppingCartExtention() {
+            ShoppingCart testShoppingCart = new ShoppingCart();
+
+            List<Product> testProducts = new List<Product> {
+                new Product { ProductID = 1, Name = "Raft1",
+                    Description = "boat 1", Price = 175M,
+                    Category = "Watersports"},
+                new Product { ProductID = 2, Name = "Raft2",
+                    Description = "boat 2", Price = 275M,
+                    Category = "Watersports"},
+                new Product { ProductID = 3, Name = "Raft3",
+                    Description = "boat 3", Price = 375M,
+                    Category = "Watersports"},
+            };
+
+            testShoppingCart.Products = testProducts;
+
+            Assert.AreEqual(testShoppingCart.TotalPrices(), 825);
+
+        }
     }
 }

@@ -100,6 +100,7 @@
     </Compile>
     <Compile Include="Models\Product.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
+    <Compile Include="Models\ShoppingCartExtention.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
