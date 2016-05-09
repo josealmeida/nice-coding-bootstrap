@@ -204,21 +204,17 @@ namespace ex5.Tests
             };
 
             //act
-            Func<Product, bool> soccerCategoryFilter = prod => prod.Category == "Soccer";
-            Func<Product, bool> watersportsCategoryFilter = prod => prod.Category == "Watersports";
-            Func<Product, bool> cyclingCategoryFilter = prod => prod.Category == "Cycling";
-
-            foreach (Product prod in products.Filter(soccerCategoryFilter)) {
+            foreach (Product prod in products.Filter(prod => prod.Category == "Soccer")) {
                 totalSoccerProducts++;
                 totalSoccerProductsPrice += prod.Price;
             }
 
-            foreach (Product prod in products.Filter(watersportsCategoryFilter)) {
+            foreach (Product prod in products.Filter(prod => prod.Category == "Watersports")) {
                 totalWatersportsProducts++;
                 totalWatersportsProductsPrice += prod.Price;
             }
 
-            foreach (Product prod in products.Filter(cyclingCategoryFilter))
+            foreach (Product prod in products.Filter(prod => prod.Category == "Cycling"))
             {
                 totalCyclingProducts++;
                 totalCyclingProductsPrice += prod.Price;
