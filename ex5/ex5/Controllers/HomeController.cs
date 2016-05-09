@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using ex5.Models;
 using NLog;
+using System.Text;
 
 namespace ex5.Controllers
 {
@@ -136,6 +137,22 @@ namespace ex5.Controllers
             }
 
             return View("Result", (object)String.Format("Total: {0}", total));
+        }
+
+        public ViewResult CreateAnonArray() {
+            var oddsAndEnds = new[] {
+                new { Name = "MVC", Category = "Pattern"},
+                new { Name = "Hat", Category = "Clothing"},
+                new { Name = "Apple", Category = "Fruit"}
+            };
+
+            StringBuilder result = new StringBuilder();
+
+            foreach (var item in oddsAndEnds) {
+                result.Append(item.Name).Append(" ");
+            }
+
+            return View("Result", (object)result.ToString());
         }
     }
 }
