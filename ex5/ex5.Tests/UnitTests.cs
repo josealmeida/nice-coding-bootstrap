@@ -170,5 +170,69 @@ namespace ex5.Tests
             Assert.AreEqual(totalWatersportsProducts, 3);
             Assert.AreEqual(totalWatersportsProductsPrice, 424.20M);
         }
+
+        [TestMethod()]
+        public void productFilterByCategoryLambda()
+        {
+
+            //arrange
+            decimal totalSoccerProducts = 0;
+            decimal totalSoccerProductsPrice = 0;
+            decimal totalWatersportsProducts = 0;
+            decimal totalWatersportsProductsPrice = 0;
+            decimal totalCyclingProducts = 0;
+            decimal totalCyclingProductsPrice = 0;
+
+            IEnumerable<Product> products = new ShoppingCart
+            {
+                Products = new List<Product> {
+                    new Product {Name = "Soccer ball", Category = "Soccer",
+                        Price = 19.50M},
+                    new Product {Name = "Corner flag", Category = "Soccer",
+                        Price = 34.95M},
+                    new Product {Name = "Kayak", Category = "Watersports",
+                        Price = 275M},
+                    new Product {Name = "Lifejacket", Category = "Watersports",
+                        Price = 48.95M},
+                    new Product {Name = "Bodyboard", Category = "Watersports",
+                        Price = 100.25M},
+                    new Product {Name = "CUBE Editor", Category = "Cycling",
+                        Price = 1000.25M},
+                    new Product {Name = "CUBE Aim", Category = "Cycling",
+                        Price = 500.25M}
+                }
+            };
+
+            //act
+            Func<Product, bool> soccerCategoryFilter = prod => prod.Category == "Soccer";
+            Func<Product, bool> watersportsCategoryFilter = prod => prod.Category == "Watersports";
+            Func<Product, bool> cyclingCategoryFilter = prod => prod.Category == "Cycling";
+
+            foreach (Product prod in products.Filter(soccerCategoryFilter)) {
+                totalSoccerProducts++;
+                totalSoccerProductsPrice += prod.Price;
+            }
+
+            foreach (Product prod in products.Filter(watersportsCategoryFilter)) {
+                totalWatersportsProducts++;
+                totalWatersportsProductsPrice += prod.Price;
+            }
+
+            foreach (Product prod in products.Filter(cyclingCategoryFilter))
+            {
+                totalCyclingProducts++;
+                totalCyclingProductsPrice += prod.Price;
+            }
+
+            //assert
+            Assert.AreEqual(totalSoccerProducts, 2);
+            Assert.AreEqual(totalSoccerProductsPrice, 54.45M);
+
+            Assert.AreEqual(totalWatersportsProducts, 3);
+            Assert.AreEqual(totalWatersportsProductsPrice, 424.20M);
+
+            Assert.AreEqual(totalCyclingProducts, 2);
+            Assert.AreEqual(totalCyclingProductsPrice, 1500.50M);
+        }
     }
 }
