@@ -127,10 +127,11 @@ namespace ex5.Controllers
             //    return prod.Category == "Soccer";
             //};
             //better implemented as
-            Func<Product, bool> categoryFilter = prod => prod.Category == "Soccer";
+            //Func<Product, bool> categoryFilter = prod => prod.Category == "Soccer";
+            //or as lambda expression passed directly as a parameter
 
             decimal total = 0;
-            foreach (Product prod in products.Filter(categoryFilter)) {
+            foreach (Product prod in products.Filter(prod => prod.Category == "Soccer" || prod.Price > 20)) {
                 total += prod.Price;
             }
 
