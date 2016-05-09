@@ -13,6 +13,9 @@ namespace ex5.Tests
 
         [TestMethod()]
         public void createProduct() {
+
+            //arrange
+            //act
             Product testProduct = new Product {
                 ProductID = 100,
                 Name = "Raft",
@@ -21,6 +24,7 @@ namespace ex5.Tests
                 Category = "Watersports"
             };
 
+            //assert
             Assert.AreEqual(testProduct.ProductID, 100);
             Assert.AreEqual(testProduct.Name, "Raft");
             Assert.AreEqual(testProduct.Description, "A boat for one person");
@@ -87,8 +91,9 @@ namespace ex5.Tests
         }
 
         [TestMethod()]
-        public void calculateTotalPrices()
-        {
+        public void calculateTotalPrices() {
+
+            // create and populate a ShoppingCart with Product objects
             IEnumerable<Product> testProductCart = new ShoppingCart
             {
                 Products = new List<Product> {
@@ -119,6 +124,51 @@ namespace ex5.Tests
             Assert.AreEqual(testCartTotal, (decimal) 825);
             Assert.AreEqual(testArrayTotal, (decimal) 378.40);
 
+        }
+
+        [TestMethod()]
+        public void productFilterByCategory() {
+
+            //arrange
+            decimal totalSoccerProducts = 0;
+            decimal totalSoccerProductsPrice = 0;
+
+            decimal totalWatersportsProducts = 0;
+            decimal totalWatersportsProductsPrice = 0;
+            
+            IEnumerable<Product> products = new ShoppingCart
+            {
+                Products = new List<Product> {
+                    new Product {Name = "Soccer ball", Category = "Soccer",
+                        Price = 19.50M},
+                    new Product {Name = "Corner flag", Category = "Soccer",
+                        Price = 34.95M},
+                    new Product {Name = "Kayak", Category = "Watersports",
+                        Price = 275M},
+                    new Product {Name = "Lifejacket", Category = "Watersports",
+                        Price = 48.95M},
+                    new Product {Name = "Bodyboard", Category = "Watersports",
+                        Price = 100.25M}
+                }
+            };
+
+            //act
+            foreach (Product prod in products.FilterByCategory("Soccer")) {
+                totalSoccerProducts++;
+                totalSoccerProductsPrice += prod.Price;
+            }
+            foreach (Product prod in products.FilterByCategory("Watersports"))
+            {
+                totalWatersportsProducts++;
+                totalWatersportsProductsPrice += prod.Price;
+            }
+
+            //assert
+            Assert.AreEqual(totalSoccerProducts, 2);
+            Assert.AreEqual(totalSoccerProductsPrice, 54.45M);
+
+            Assert.AreEqual(totalWatersportsProducts, 3);
+            Assert.AreEqual(totalWatersportsProductsPrice, 424.20M);
         }
     }
 }
