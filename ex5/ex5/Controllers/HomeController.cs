@@ -4,11 +4,14 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using ex5.Models;
+using NLog;
 
 namespace ex5.Controllers
 {
     public class HomeController : Controller
     {
+        private static Logger logger = LogManager.GetCurrentClassLogger();
+
         // GET: Home
         public string Index()
         {
@@ -40,6 +43,8 @@ namespace ex5.Controllers
                 Category = "Watersports"
             };
 
+            logger.Debug("Category: {0}", myProduct.Category);
+
             return View("Result",
             (object)String.Format("Category: {0}", myProduct.Category));
         }
@@ -52,6 +57,8 @@ namespace ex5.Controllers
 
             Dictionary<string, int> myDict = new Dictionary<string, int> {
                 { "apple", 10 }, { "orange", 20 }, { "plum", 30 }};
+
+            logger.Debug("stringArray: {0}", (object)stringArray[1]);
 
             return View("Result", (object)stringArray[1]);
         }
@@ -69,6 +76,9 @@ namespace ex5.Controllers
             };
             // get the total value of the products in the cart
             decimal cartTotal = cart.TotalPrices();
+
+            logger.Debug("Total: {0:c}", cartTotal);
+
             return View("Result",
             (object)String.Format("Total: {0:c}", cartTotal));
         }
@@ -95,8 +105,11 @@ namespace ex5.Controllers
             // get the total value of the products in the cart
             decimal cartTotal = products.TotalPrices();
             decimal arrayTotal = products.TotalPrices();
+
+            logger.Debug("Cart Total: {0:c}, Array Total: {1:c}", cartTotal, arrayTotal);
+
             return View("Result", 
-                (object)String.Format("Cart Total: {0}, Array Total: {1}", cartTotal, arrayTotal));
+                (object)String.Format("Cart Total: {0:c}, Array Total: {1:c}", cartTotal, arrayTotal));
         }
     }
 }
