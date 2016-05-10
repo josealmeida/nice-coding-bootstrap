@@ -154,5 +154,33 @@ namespace ex5.Controllers
 
             return View("Result", (object)result.ToString());
         }
+
+        public ViewResult FindProducts() {
+            Product[] products = {
+                new Product {Name = "Kayak", Category = "Watersports", Price = 275M},
+                new Product {Name = "Lifejacket", Category = "Watersports", Price = 48.95M},
+                new Product {Name = "Soccer ball", Category = "Soccer", Price = 19.50M},
+                new Product {Name = "Corner flag", Category = "Soccer", Price = 34.95M}
+            };
+
+            var foundProducts = products.OrderByDescending(prod => prod.Price)
+                .Take(3)
+                .Select( prod => new { prod.Name, prod.Price } );
+
+            //Deferred LINQ Query
+            //Select,  Take and OrderByDescending methods are deferred
+            //A query that contains only deferred methods is not
+            //executed until the items in the result are enumerated
+            //i.e. using foreach
+            products[2] = new Product { Name = "Stadium", Price = 79600M };
+
+            StringBuilder result = new StringBuilder();
+
+            foreach (var prod in foundProducts) {
+                result.AppendFormat("Price: {0} ", prod.Price);
+            }
+
+            return View("Result", (object)result.ToString());
+        }
     }
 }
