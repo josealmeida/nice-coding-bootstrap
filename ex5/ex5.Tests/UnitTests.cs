@@ -7,6 +7,7 @@ using NLog;
 using System.Linq;
 using System.Web.Mvc;
 using System.Text;
+using System.Threading.Tasks;
 
 namespace ex5.Tests
 {
@@ -308,6 +309,13 @@ namespace ex5.Tests
             Assert.IsNotNull(viewResult, "The result is not a view result");
             Assert.AreEqual("Result", viewResult.ViewName);
             Assert.AreEqual((object)testResult.ToString(), viewResult.ViewData.Model);
+        }
+
+        [TestMethod()]
+        public void HttpAsyncModel()
+        {
+            Task<long?> httpTask = HttpAsync.GetPageLength();
+            Assert.AreEqual(4000, httpTask.Result);
         }
     }
 }

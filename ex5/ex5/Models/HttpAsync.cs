@@ -9,14 +9,17 @@ namespace ex5.Models
 {
     public class HttpAsync
     {
-        public static Task<long?> GetPageLength(){
+        public async static Task<long?> GetPageLength(){
 
             HttpClient client = new HttpClient();
-            var httpTask = client.GetAsync("http://google.com");
-
-            return httpTask.ContinueWith((Task<HttpResponseMessage> antecedent) => {
-                return antecedent.Result.Content.Headers.ContentLength;
-            });
+            var httpMessage = 
+                await client.GetAsync(
+                    String.Concat(
+                        "https://raw.githubusercontent.com",
+                        "/josealmeida/diveintohtml5/master/index.html"));
+            // we could do other things here while we are waiting
+            // for the HTTP request to complete
+            return httpMessage.Content.Headers.ContentLength;
         }
     }
 }
