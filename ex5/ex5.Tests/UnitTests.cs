@@ -281,7 +281,7 @@ namespace ex5.Tests
         }
 
         [TestMethod()]
-        public void productFinderView() {
+        public void FindProductsView() {
 
             HomeController controller = new HomeController();
             StringBuilder testResult = new StringBuilder().Append(
@@ -296,11 +296,11 @@ namespace ex5.Tests
         }
 
         [TestMethod()]
-        public void productSumView() {
+        public void SumProductsView() {
 
             HomeController controller = new HomeController();
             StringBuilder testResult = new StringBuilder().Append(
-                "Sum: $378.40 ");
+                "Sum: £378.40");
 
             ActionResult actionResult = controller.SumProducts();
             ViewResult viewResult = actionResult as ViewResult;

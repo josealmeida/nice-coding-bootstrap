@@ -194,6 +194,7 @@ namespace ex5.Controllers
             };
 
             var results = products.Sum(e => e.Price);
+
             products[2] = new Product { Name = "Stadium", Price = 79500M };
 
             return View("Result", (object)String.Format("Sum: {0:c}", results));
