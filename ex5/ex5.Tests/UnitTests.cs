@@ -127,7 +127,6 @@ namespace ex5.Tests
 
             Assert.AreEqual(testCartTotal, (decimal) 825);
             Assert.AreEqual(testArrayTotal, (decimal) 378.40);
-
         }
 
         [TestMethod()]
@@ -176,8 +175,7 @@ namespace ex5.Tests
         }
 
         [TestMethod()]
-        public void productFilterByCategoryLambda()
-        {
+        public void productFilterByCategoryLambda() {
 
             //arrange
             decimal totalSoccerProducts = 0;
@@ -208,17 +206,20 @@ namespace ex5.Tests
             };
 
             //act
-            foreach (Product prod in products.Filter(prod => prod.Category == "Soccer")) {
+            foreach (Product prod in products.Filter(
+                prod => prod.Category == "Soccer")) {
                 totalSoccerProducts++;
                 totalSoccerProductsPrice += prod.Price;
             }
 
-            foreach (Product prod in products.Filter(prod => prod.Category == "Watersports")) {
+            foreach (Product prod in products.Filter(
+                prod => prod.Category == "Watersports")) {
                 totalWatersportsProducts++;
                 totalWatersportsProductsPrice += prod.Price;
             }
 
-            foreach (Product prod in products.Filter(prod => prod.Category == "Cycling"))
+            foreach (Product prod in products.Filter(
+                prod => prod.Category == "Cycling"))
             {
                 totalCyclingProducts++;
                 totalCyclingProductsPrice += prod.Price;
@@ -254,11 +255,13 @@ namespace ex5.Tests
                         Price = 60M}
             };
 
-            var foundProductsOrderBy = products.OrderBy(prod => prod.Price)
+            var foundProductsOrderBy = products
+                .OrderBy(prod => prod.Price)
                 .Take(5)
                 .Select(prod => new { prod.Name, prod.Price });
 
-            var foundProductsOrderByDesc = products.OrderByDescending(prod => prod.Price)
+            var foundProductsOrderByDesc = products
+                .OrderByDescending(prod => prod.Price)
                 .Take(3)
                 .Select(prod => new { prod.Name, prod.Price });
 
@@ -281,14 +284,30 @@ namespace ex5.Tests
         public void productFinderView() {
 
             HomeController controller = new HomeController();
+            StringBuilder testResult = new StringBuilder().Append(
+                "Price: 79600 Price: 275 Price: 48.95 ");
 
             ActionResult actionResult = controller.FindProducts();
             ViewResult viewResult = actionResult as ViewResult;
 
-            StringBuilder result = new StringBuilder();
+            Assert.IsNotNull(viewResult, "The result is not a view result");
+            Assert.AreEqual("Result", viewResult.ViewName);
+            Assert.AreEqual((object)testResult.ToString(), viewResult.ViewData.Model);
+        }
+
+        [TestMethod()]
+        public void productSumView() {
+
+            HomeController controller = new HomeController();
+            StringBuilder testResult = new StringBuilder().Append(
+                "Sum: $378.40 ");
+
+            ActionResult actionResult = controller.SumProducts();
+            ViewResult viewResult = actionResult as ViewResult;
 
             Assert.IsNotNull(viewResult, "The result is not a view result");
             Assert.AreEqual("Result", viewResult.ViewName);
+            Assert.AreEqual((object)testResult.ToString(), viewResult.ViewData.Model);
         }
     }
 }

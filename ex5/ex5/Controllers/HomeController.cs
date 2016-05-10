@@ -172,6 +172,7 @@ namespace ex5.Controllers
             //A query that contains only deferred methods is not
             //executed until the items in the result are enumerated
             //i.e. using foreach
+
             products[2] = new Product { Name = "Stadium", Price = 79600M };
 
             StringBuilder result = new StringBuilder();
@@ -181,6 +182,21 @@ namespace ex5.Controllers
             }
 
             return View("Result", (object)result.ToString());
+        }
+
+        public ViewResult SumProducts()
+        {
+            Product[] products = {
+                new Product {Name = "Kayak", Category = "Watersports", Price = 275M},
+                new Product {Name = "Lifejacket", Category = "Watersports", Price = 48.95M},
+                new Product {Name = "Soccer ball", Category = "Soccer", Price = 19.50M},
+                new Product {Name = "Corner flag", Category = "Soccer", Price = 34.95M}
+            };
+
+            var results = products.Sum(e => e.Price);
+            products[2] = new Product { Name = "Stadium", Price = 79500M };
+
+            return View("Result", (object)String.Format("Sum: {0:c}", results));
         }
     }
 }
