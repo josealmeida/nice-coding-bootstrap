@@ -2,7 +2,11 @@
 using System.Collections.Generic;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using ex5.Models;
+using ex5.Controllers;
 using NLog;
+using System.Linq;
+using System.Web.Mvc;
+using System.Text;
 
 namespace ex5.Tests
 {
@@ -229,6 +233,62 @@ namespace ex5.Tests
 
             Assert.AreEqual(totalCyclingProducts, 2);
             Assert.AreEqual(totalCyclingProductsPrice, 1500.50M);
+        }
+
+        [TestMethod()]
+        public void productFinder() {
+            Product[] products = {
+                    new Product {Name = "Soccer ball", Category = "Soccer",
+                        Price = 10M},
+                    new Product {Name = "Corner flag", Category = "Soccer",
+                        Price = 50M},
+                    new Product {Name = "Kayak", Category = "Watersports",
+                        Price = 20M},
+                    new Product {Name = "Lifejacket", Category = "Watersports",
+                        Price = 40M},
+                    new Product {Name = "Bodyboard", Category = "Watersports",
+                        Price = 30M},
+                    new Product {Name = "CUBE Editor", Category = "Cycling",
+                        Price = 70M},
+                    new Product {Name = "CUBE Aim", Category = "Cycling",
+                        Price = 60M}
+            };
+
+            var foundProductsOrderBy = products.OrderBy(prod => prod.Price)
+                .Take(5)
+                .Select(prod => new { prod.Name, prod.Price });
+
+            var foundProductsOrderByDesc = products.OrderByDescending(prod => prod.Price)
+                .Take(3)
+                .Select(prod => new { prod.Name, prod.Price });
+
+            decimal productsOrderedTotal = 0;
+            decimal productsOrderedDescTotal = 0;
+
+            foreach (var prod in foundProductsOrderBy) {
+                productsOrderedTotal += prod.Price;
+            }
+
+            foreach (var prod in foundProductsOrderByDesc) {
+                productsOrderedDescTotal += prod.Price;
+            }
+
+            Assert.AreEqual(productsOrderedTotal, 150M);
+            Assert.AreEqual(productsOrderedDescTotal, 180M);
+        }
+
+        [TestMethod()]
+        public void productFinderView() {
+
+            HomeController controller = new HomeController();
+
+            ActionResult actionResult = controller.FindProducts();
+            ViewResult viewResult = actionResult as ViewResult;
+
+            StringBuilder result = new StringBuilder();
+
+            Assert.IsNotNull(viewResult, "The result is not a view result");
+            Assert.AreEqual("Result", viewResult.ViewName);
         }
     }
 }
