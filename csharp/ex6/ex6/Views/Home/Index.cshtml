@@ -1,18 +1,8 @@
 ﻿@model ex6.Models.Product
 
 @{
-    Layout = null;
+    ViewBag.Tile = "Product Name";
+    Layout = "~/ViewStartPage/_BasicLayout.cshtml";
 }
 
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Index</title>
-</head>
-<body>
-    <div> 
-    </div>
-</body>
-</html>
+Product Name: @Model.Name
