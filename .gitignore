@@ -286,4 +286,4 @@ Backup*/
 UpgradeLog*.XML
 
 # Paket
-.paket/paket.exe
+paket.exe
