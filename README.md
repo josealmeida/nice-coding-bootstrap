@@ -7,3 +7,4 @@
 - ex3 - page 038 - validation
 - ex4 - page 053 - mvc and domain-driven development (ddd)
 - ex5 - page 073 - language features
+- ex6 - page 101 - razor
