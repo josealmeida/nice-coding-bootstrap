@@ -16,7 +16,9 @@
 
 
 ### Why use F#
-
+    ex1-syntax
+        01-fsharp-in-60-seconds.fsx
+            https://fsharpforfunandprofit.com/posts/fsharp-in-60-seconds/
 
 ### FSharpKoans
 
