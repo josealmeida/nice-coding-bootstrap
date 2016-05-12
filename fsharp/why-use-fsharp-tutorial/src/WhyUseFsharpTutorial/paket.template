@@ -1,0 +1,25 @@
+type project
+title
+    WhyUseFsharpTutorial
+owners
+    Jose Hilario Almeida
+authors 
+    Jose Hilario Almeida
+projectUrl
+    http://github.com/[github-user]/WhyUseFsharpTutorial
+iconUrl
+    https://raw.githubusercontent.com/[github-user]/WhyUseFsharpTutorial/master/docs/files/img/logo.png
+licenseUrl
+    http://github.com/[github-user]/WhyUseFsharpTutorial/blob/master/LICENSE.txt
+requireLicenseAcceptance
+    false
+copyright
+    Copyright 2015
+tags
+    f#
+summary
+    Why Use F# tutorial at https://fsharpforfunandprofit.com/why-use-fsharp/
+description
+    Why Use F# tutorial at https://fsharpforfunandprofit.com/why-use-fsharp/
+
+
