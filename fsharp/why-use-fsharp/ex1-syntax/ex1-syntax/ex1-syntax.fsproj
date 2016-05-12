@@ -47,6 +47,8 @@
     <Compile Include="Library1.fs" />
     <None Include="01-fsharp-in-60-seconds.fsx" />
     <None Include="02-fvsc-sum-of-squares.fsx" />
+    <None Include="03-fvsc-quicksort.fsx" />
+    <None Include="fvsc-download.fsx" />
   </ItemGroup>
   <PropertyGroup>
     <MinimumVisualStudioVersion Condition="'$(MinimumVisualStudioVersion)' == ''">11</MinimumVisualStudioVersion>

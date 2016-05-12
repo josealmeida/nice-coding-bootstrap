@@ -1,4 +1,4 @@
-# NICE Coding Bootsrap
+# NICE Coding Bootstrap
 
 ## C Sharp 
 
@@ -19,7 +19,11 @@
     ex1-syntax
         01-fsharp-in-60-seconds.fsx
             https://fsharpforfunandprofit.com/posts/fsharp-in-60-seconds/
+        02-fvsc-sum-of-squares.fsx
+            https://fsharpforfunandprofit.com/posts/fvsc-sum-of-squares/
+        03-fvsc-quicksort.fsx
+            https://fsharpforfunandprofit.com/posts/fvsc-quicksort/
+		04-fvsc-download.fsx
+			https://fsharpforfunandprofit.com/posts/fvsc-download/
 
 ### FSharpKoans
-
-    
