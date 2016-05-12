@@ -59,6 +59,11 @@
   -->
   <Import Project="..\..\.paket\paket.targets" />
   <ItemGroup>
+    <None Include="exercises\01Intro.fsx" />
+    <None Include="exercises\02Syntax.fsx" />
+    <None Include="exercises\03SumOfSquares.fsx" />
+    <None Include="exercises\04Quicksort.fsx" />
+    <None Include="exercises\05Download.fsx" />
     <Compile Include="Library.fs" />
     <None Include="Script.fsx" />
     <None Include="paket.references" />
