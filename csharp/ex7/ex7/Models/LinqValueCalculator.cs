@@ -1,6 +1,5 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
-using ex7.Models;
 
 namespace ex7.Models
 {

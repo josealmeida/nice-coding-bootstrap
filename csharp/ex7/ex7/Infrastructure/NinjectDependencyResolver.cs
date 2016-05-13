@@ -1,8 +1,8 @@
 ﻿using Ninject;
 using System;
 using System.Collections.Generic;
-using ex7.Models;
 using System.Web.Mvc;
+using ex7.Models;
 
 namespace ex7.Infrastructure
 {
@@ -25,7 +25,8 @@ namespace ex7.Infrastructure
 
         private void AddBindings() {
             kernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
-            kernel.Bind<Discount.IDiscountHelper>().To<Discount.DefaultDiscountHelper>();
+            kernel.Bind<IDiscountHelper>().To<DefaultDiscountHelper>()
+                .WithConstructorArgument("discountParam", 50M);
         }
     }
 }

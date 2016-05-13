@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace ex7.Models
+﻿namespace ex7.Models
 {
     public interface IDiscountHelper
     {

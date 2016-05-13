@@ -1,15 +1,15 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-
-namespace ex7.Models
+﻿namespace ex7.Models
 {
-    public class DefaultDiscountHelper
+    public class DefaultDiscountHelper: IDiscountHelper
     {
-        public decimal ApplyDiscount(decimal totalParam)
-        {
-            return (totalParam - (10m / 100m * totalParam));
+        public decimal discountSize;
+
+        public DefaultDiscountHelper(decimal discountParam) {
+            discountSize = discountParam;
+        }
+
+        public decimal ApplyDiscount(decimal totalParam) {
+            return (totalParam - (discountSize / 100m * totalParam));
         }
     }
 }
