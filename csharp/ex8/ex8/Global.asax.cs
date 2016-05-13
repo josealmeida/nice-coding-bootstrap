@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using ex8.Infrastructure;
 using System.Web.Mvc;
 using System.Web.Routing;
 
@@ -13,6 +10,9 @@ namespace ex8
         {
             AreaRegistration.RegisterAllAreas();
             RouteConfig.RegisterRoutes(RouteTable.Routes);
+
+            //custom dependency resolver
+            DependencyResolver.SetResolver(new NinjectDependencyResolver());
         }
     }
 }
