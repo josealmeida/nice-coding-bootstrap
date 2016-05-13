@@ -25,6 +25,7 @@ namespace ex7.Infrastructure
 
         private void AddBindings() {
             kernel.Bind<IValueCalculator>().To<LinqValueCalculator>();
+            kernel.Bind<Discount.IDiscountHelper>().To<Discount.DefaultDiscountHelper>();
         }
     }
 }

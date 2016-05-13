@@ -5,7 +5,8 @@ using System.Web;
 
 namespace ex7.Models
 {
-    public class Discount
+    public interface IDiscountHelper
     {
+        decimal ApplyDiscount(decimal totalParam);
     }
 }
