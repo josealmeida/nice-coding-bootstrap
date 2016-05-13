@@ -11,7 +11,7 @@
 - ex5 - page 073 - language features
 - ex6 - page 101 - razor
 - ex7 - page 125 - dependency injection (DI) container
-- ex8 - page 141 - unit testing
+- ex8 - page 141 - unit testing and Moq
 
 
 ## F Sharp
