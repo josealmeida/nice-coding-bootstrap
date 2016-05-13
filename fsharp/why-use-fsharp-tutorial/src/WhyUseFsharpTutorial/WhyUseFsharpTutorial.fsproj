@@ -64,6 +64,11 @@
     <None Include="exercises\03SumOfSquares.fsx" />
     <None Include="exercises\04Quicksort.fsx" />
     <None Include="exercises\05Download.fsx" />
+    <None Include="exercises\06FourKeyConcepts.fsx" />
+    <None Include="exercises\07Conciseness.fsx" />
+    <None Include="exercises\08ConcisenessTypeInference.fsx" />
+    <None Include="exercises\09ConcisenessTypeDefinitions.fsx" />
+    <None Include="exercises\10ConcisenessExtractingBoilerplate.fsx" />
     <Compile Include="Library.fs" />
     <None Include="Script.fsx" />
     <None Include="paket.references" />
