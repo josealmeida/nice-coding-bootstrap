@@ -10,6 +10,9 @@
 - ex4 - page 053 - mvc and domain-driven development (ddd)
 - ex5 - page 073 - language features
 - ex6 - page 101 - razor
+- ex7 - page 125 - dependency injection (DI) container
+- ex8 - page 141 - unit testing and Moq
+
 
 ## F Sharp
     if needed use fsi to  run the scripts, e.g.: fsi filename.fsx
