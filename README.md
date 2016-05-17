@@ -19,14 +19,15 @@
 
 
 ### Why use F#
-    ex1-syntax
-        01-fsharp-in-60-seconds.fsx
-            https://fsharpforfunandprofit.com/posts/fsharp-in-60-seconds/
-        02-fvsc-sum-of-squares.fsx
-            https://fsharpforfunandprofit.com/posts/fvsc-sum-of-squares/
-        03-fvsc-quicksort.fsx
-            https://fsharpforfunandprofit.com/posts/fvsc-quicksort/
-		04-fvsc-download.fsx
-			https://fsharpforfunandprofit.com/posts/fvsc-download/
+    01Intro.fsx                             https://fsharpforfunandprofit.com/posts/why-use-fsharp-intro/
+    02Syntax.fsx                            https://fsharpforfunandprofit.com/posts/fsharp-in-60-seconds/
+    03SumOfSquares.fsx                      https://fsharpforfunandprofit.com/posts/fvsc-sum-of-squares/
+    04Quicksort.fsx                         https://fsharpforfunandprofit.com/posts/fvsc-quicksort/
+	05Download.fsx                          https://fsharpforfunandprofit.com/posts/fvsc-download/
+    06FourKeyConcepts.fsx                   https://fsharpforfunandprofit.com/posts/key-concepts/
+    07Conciseness.fsx                       https://fsharpforfunandprofit.com/posts/conciseness-intro/
+    08ConcisenessTypeInference.fsx          https://fsharpforfunandprofit.com/posts/conciseness-type-inference/
+    09ConcisenessTypeDefinitions.fsx        https://fsharpforfunandprofit.com/posts/conciseness-type-definitions/
+    10ConcisenessExtractingBoilerplate.fsx  https://fsharpforfunandprofit.com/posts/conciseness-extracting-boilerplate/
 
 ### FSharpKoans

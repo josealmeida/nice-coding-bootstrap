@@ -1,0 +1,1 @@
+//https://fsharpforfunandprofit.com/posts/why-use-fsharp-intro/

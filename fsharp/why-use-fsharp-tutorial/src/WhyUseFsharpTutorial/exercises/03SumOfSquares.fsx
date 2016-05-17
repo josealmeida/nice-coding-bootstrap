@@ -1,4 +1,4 @@
-﻿// from https://fsharpforfunandprofit.com/posts/fvsc-sum-of-squares/
+﻿//https://fsharpforfunandprofit.com/posts/fvsc-sum-of-squares/
 
 // define the square function
 let square x = x * x

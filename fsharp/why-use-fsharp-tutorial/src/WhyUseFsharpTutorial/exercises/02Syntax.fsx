@@ -1,9 +1,4 @@
-﻿// from https://fsharpforfunandprofit.com/posts/fsharp-in-60-seconds/
-
-#load "Library1.fs"
-open ex1_syntax
-
-// Define your library scripting code here
+﻿//https://fsharpforfunandprofit.com/posts/fsharp-in-60-seconds/
 
 // single line comments use a double slash
 (* multi line comments use (* . . . *) pair
