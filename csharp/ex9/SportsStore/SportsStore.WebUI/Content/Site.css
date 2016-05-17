@@ -20,13 +20,13 @@ div#header div.title {
 
 div#content { 
     border-left: 2px solid gray; 
-    margin-left: 9em; 
+    margin-left: 13em; 
     padding: 1em;
 }
 
 div#categories { 
     float: left; 
-    width: 8em; 
+    width: 12em; 
     padding: .3em;
 }
 
@@ -72,3 +72,13 @@ div.pager A.selected {
     background-color: #353535; 
     color: White; 
 }
+
+div#categories a
+{
+font: bold 1.1em Arial; display: block;
+text-decoration: none; padding: .6em; color: Black;
+border-bottom: 1px solid silver;
+}
+div#categories a.selected { background-color: #666; color: White; }
+div#categories a:hover { background-color: #CCC; }
+div#categories a.selected:hover { background-color: #666; }
