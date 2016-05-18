@@ -8,19 +8,19 @@
 <table width="80%" align="center">
     <thead>
         <tr>
-            <th align="center">Quantity</th>
+            <th align="left">Quantity</th>
             <th align="left">Item</th>
-            <th align="right">Price</th>
-            <th align="right">Subtotal</th>
+            <th align="left">Price</th>
+            <th align="left">Subtotal</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var line in Model.Cart.Lines) {
             <tr>
-                <td align="center">@line.Quantity</td>
+                <td align="left">@line.Quantity</td>
                 <td align="left">@line.Product.Name</td>
-                <td align="right">@line.Product.Price.ToString("c")</td>
-                <td align="right">
+                <td align="left">@line.Product.Price.ToString("c")</td>
+                <td align="left">
                     @((line.Quantity * line.Product.Price).ToString("c"))
                 </td>
             </tr>
