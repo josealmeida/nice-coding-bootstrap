@@ -70,6 +70,7 @@
     <None Include="exercises\09ConcisenessTypeDefinitions.fsx" />
     <None Include="exercises\10ConcisenessExtractingBoilerplate.fsx" />
     <None Include="exercises\11ConcisenessFunctionsAsBuildingBlocks.fsx" />
+    <None Include="exercises\12ConcisenessPatternMatching.fsx" />
     <Compile Include="Library.fs" />
     <None Include="Script.fsx" />
     <None Include="paket.references" />
