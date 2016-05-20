@@ -6,9 +6,19 @@ using System.Web;
 
 namespace SportsStore.WebUI.Models
 {
+    /// <summary>
+    /// CartIndexViewModel
+    /// </summary>
     public class CartIndexViewModel
     {
+        /// <summary>
+        /// Cart
+        /// </summary>
         public Cart Cart { get; set; }
+
+        /// <summary>
+        /// ReturnUrl
+        /// </summary>
         public string ReturnUrl { get; set; }
     }
 }

@@ -5,7 +5,6 @@ using SportsStore.Domain.Entities;
 using SportsStore.WebUI.Controllers;
 using SportsStore.WebUI.HtmlHelpers;
 using SportsStore.WebUI.Models;
-using System.Web;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
@@ -30,7 +29,7 @@ namespace SportsStore.UnitTests
             }.AsQueryable());
             // create a controller and make the page size 3 items
             ProductController controller = new ProductController(mock.Object);
-            controller.PageSize = 3;
+            controller.pageSize = 3;
             // Action
             ProductsListViewModel result = (ProductsListViewModel)controller.List(null, 2).Model;
             // Assert
@@ -74,7 +73,7 @@ namespace SportsStore.UnitTests
             }.AsQueryable());
             // Arrange
             ProductController controller = new ProductController(mock.Object);
-            controller.PageSize = 3;
+            controller.pageSize = 3;
             // Act
             ProductsListViewModel result = (ProductsListViewModel)controller.List(null, 2).Model;
             // Assert
@@ -99,7 +98,7 @@ namespace SportsStore.UnitTests
             }.AsQueryable());
             // Arrange - create a controller and make the page size 3 items
             ProductController controller = new ProductController(mock.Object);
-            controller.PageSize = 3;
+            controller.pageSize = 3;
             // Action
             Product[] result = ((ProductsListViewModel)controller.List("Cat2", 1).Model)
             .Products.ToArray();
@@ -164,7 +163,7 @@ namespace SportsStore.UnitTests
             }.AsQueryable());
             // Arrange - create a controller and make the page size 3 items
             ProductController target = new ProductController(mock.Object);
-            target.PageSize = 3;
+            target.pageSize = 3;
             // Action - test the product counts for different categories
             int res1 = ((ProductsListViewModel)target
             .List("Cat1").Model).PagingInfo.TotalItems;

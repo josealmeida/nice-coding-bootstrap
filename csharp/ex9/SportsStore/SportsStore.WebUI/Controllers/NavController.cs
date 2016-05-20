@@ -11,11 +11,13 @@ namespace SportsStore.WebUI.Controllers
     {
         private IProductRepository repository;
 
-        public NavController(IProductRepository repo) {
+        public NavController(IProductRepository repo)
+        {
             repository = repo;
         }
 
-        public PartialViewResult Menu(string category = null) {
+        public PartialViewResult Menu(string category = null) 
+        {
 
             ViewBag.SelectedCategory = category;
 

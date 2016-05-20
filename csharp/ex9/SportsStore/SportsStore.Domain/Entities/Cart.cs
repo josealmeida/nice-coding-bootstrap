@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SportsStore.Domain.Entities
 {
@@ -10,35 +7,47 @@ namespace SportsStore.Domain.Entities
     {
         private List<CartLine> lineCollection = new List<CartLine>();
 
-        public void AddItem(Product product, int quantity) {
+        public void AddItem(Product product, int quantity) 
+        {
             CartLine line = lineCollection
                 .Where(p => p.Product.ProductID == product.ProductID)
                 .FirstOrDefault();
 
-            if (line == null) {
-                lineCollection.Add(new CartLine
-                {
+            if (line == null) 
+            {
+                lineCollection.Add(
+                    new CartLine
+                    {
                     Product = product,
                     Quantity = quantity
-                });
-            } else {
+                    }
+                );
+            }
+            else 
+            {
                 line.Quantity += quantity;
             }
         }
 
-        public void RemoveLine(Product product) {
+        public void RemoveLine(Product product) 
+        {
             lineCollection.RemoveAll(l => l.Product.ProductID ==product.ProductID);
         }
 
-        public decimal ComputeTotalValue() {
+        public decimal ComputeTotalValue() 
+        {
             return lineCollection.Sum(e => e.Product.Price * e.Quantity);
         }
 
-        public void Clear() {
+        public void Clear() 
+        {
             lineCollection.Clear();
         }
 
-        public IEnumerable<CartLine> Lines { get { return lineCollection; } }
+        public IEnumerable<CartLine> Lines
+        { 
+            get { return lineCollection; } 
+        }
     }
 
     public class CartLine

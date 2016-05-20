@@ -10,7 +10,8 @@
 </head>
 <body>
     <div id="header">
-        <div class="title">SAMPLE TEXT</div>
+        @{Html.RenderAction("Summary", "Cart");}
+        <div class="title">LOGO</div>
     </div>
     <div id="categories">
         @{ Html.RenderAction("Menu", "Nav"); }
